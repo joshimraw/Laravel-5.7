@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 use App\Post;
 use Session;
 
@@ -38,7 +40,7 @@ class PostController extends Controller
     {
        $this->validate($request, array(
         // validate the data
-            'title' => 'required|max:2255',
+            'title' => 'required|max:255',
             'body'  => 'required'
 
         ));
@@ -63,7 +65,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return view('posts.show');
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**

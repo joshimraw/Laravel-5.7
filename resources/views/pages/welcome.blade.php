@@ -15,11 +15,11 @@
 			<div class="col-md-8">
 				<h2>First post about laravel</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis aut voluptatum sapiente ut, dicta sed aliquid rerum, velit perspiciatis nisi adipisci, dolore sunt dignissimos nulla nam beatae ex. Necessitatibus, corporis!
-				<a href="#" class="btn btn-info btn-small" >Read more</a> </p>
+				<a href="#" class="btn btn-link btn-small" >Read more</a> </p>
 
 				<h2>Laravel part second</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis aut voluptatum sapiente ut, dicta sed aliquid rerum, velit perspiciatis nisi adipisci, dolore sunt dignissimos nulla nam beatae ex. Necessitatibus, corporis!
-				<a href="#" class="btn btn-info btn-small" >Read more</a> </p>
+				<a href="#" class="btn btn-link btn-small" >Read more</a> </p>
 
 			</div>
 			<div class="col-md-3 col-md-offset-1">
