@@ -7,8 +7,12 @@
 
 <div class="row">
 	<div class="col-md-8">
-		<h2>{{ $post->title }}</h2>
-		<p class="lead"> {{ $post->body }} </p>
+		{!! Form::model($post, ['route'=> ['posts.update', $post->id], 'method'=>'put'] ) !!}
+		{!! Form::label('title', 'Post Title') !!}
+		{!! Form::text('title', null, array('class'=>'form-control')) !!}
+		
+		{!! Form::label('body', 'Post Body') !!}
+		{!! Form::textarea('body', null, array('class'=> 'form-control')) !!}
 	</div>
 
 	<div class="col-md-4">
@@ -24,16 +28,15 @@
 			<hr>
 			<div class="row">
 				<div class="col-md-6">
-					{!! Html::linkRoute('posts.edit', 'Edit', array($post->id), array('class'=>'btn btn-primary btn-block')) !!}
+					{!! Html::linkRoute('posts.show', 'Cancel', array($post->id), array('class'=>'btn btn-default btn-block')) !!}
 				</div>
 				<div class="col-md-6">
-					{!! Form::open(['route'=> ['posts.destroy', $post->id], 'method'=> 'delete'])!!}
-					{!! Form::submit('Delete', ['class'=> 'btn btn-danger btn-block']) !!}
-					{!! Form::close() !!}
+					{!! Form::submit('Save Changes', ['class'=> 'btn btn-success btn-block']) !!}
 				</div>
 			</div>
 		</div>
 	</div>
+	{!! Form::close(); !!}
 </div>
 
 
