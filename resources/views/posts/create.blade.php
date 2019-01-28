@@ -11,6 +11,10 @@
 		    {!! Form::label('title', 'Post Title') !!}
 		    {!! Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength'=>'25')) !!}
 
+		    {!! Form::label('slug', 'Post Slug') !!}
+		    {!! Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength'=>'5', 'maxlength'=>'255')) !!}
+
+
 		    {!! Form::label('body', 'Post Body') !!}
 		    {!! Form::textarea('body', null, array('class' => 'form-control', 'required' => ''))!!}
 		    {!! Form::submit('Crete Post', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top: 10px;')) !!}

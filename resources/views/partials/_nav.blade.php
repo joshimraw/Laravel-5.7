@@ -23,7 +23,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Posts</a></li>
+            <li><a href="/posts">Posts</a></li>
             <li><a href="#">Logout</a></li>
           </ul>
         </li>

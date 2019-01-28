@@ -12,17 +12,23 @@
 
 
 		<div class="row">
-			<div class="col-md-8">
-				<h2>First post about laravel</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis aut voluptatum sapiente ut, dicta sed aliquid rerum, velit perspiciatis nisi adipisci, dolore sunt dignissimos nulla nam beatae ex. Necessitatibus, corporis!
-				<a href="#" class="btn btn-link btn-small" >Read more</a> </p>
+			<div class="col-md-7 col-md-offset-1">
+				@foreach($posts as $post)
 
-				<h2>Laravel part second</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis aut voluptatum sapiente ut, dicta sed aliquid rerum, velit perspiciatis nisi adipisci, dolore sunt dignissimos nulla nam beatae ex. Necessitatibus, corporis!
-				<a href="#" class="btn btn-link btn-small" >Read more</a> </p>
+				<div class="row">
+					<div class="post-item">
+						<h2> {{ $post->title }} </h2>
+						<p> {{ substr($post->body, 0, 255) }} </p>
+						<a href="{{url('blog/'.$post->slug)}}" class="btn btn-info btn-small">Read more</a>
+						<br>
+						<br>
+					</div>
+				</div>
+				
+				@endforeach
+			</div> <!-- end of col eight -->
 
-			</div>
-			<div class="col-md-3 col-md-offset-1">
+			<div class="col-md-2 col-md-offset-1">
 				<h2>All Archive </h2>
 				<hr>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis id tempora quidem doloribus accusamus sed eligendi, molestias, voluptate, delectus nisi maiores dolorem! Quas quod possimus 

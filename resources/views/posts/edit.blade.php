@@ -10,6 +10,9 @@
 		{!! Form::model($post, ['route'=> ['posts.update', $post->id], 'method'=>'put'] ) !!}
 		{!! Form::label('title', 'Post Title') !!}
 		{!! Form::text('title', null, array('class'=>'form-control')) !!}
+
+		{!! Form::label('slug', 'Post Slug') !!}
+		{!! Form::text('slug', null, array('class'=>'form-control')) !!}
 		
 		{!! Form::label('body', 'Post Body') !!}
 		{!! Form::textarea('body', null, array('class'=> 'form-control')) !!}

@@ -14,12 +14,16 @@
 	<div class="col-md-4">
 		<div class="well">
 			<dl class="dl-horizontal">
-				<dt>Create At:</dt>
-				<dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
+				<label>URL slug:</label>
+				<p><a href="{{ route('blog.single', $post->slug)}}">{{ url('blog/'.$post->slug) }}</a></p>
 			</dl>
 			<dl class="dl-horizontal">
-				<dt>Last Update:</dt>
-				<dd> {{ date('M j, Y h:ia', strtotime($post->updated_at)) }} </dd>
+				<label>Create At:</label>
+				<p>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</p>
+			</dl>
+			<dl class="dl-horizontal">
+				<label>Last Update:</label>
+				<p> {{ date('M j, Y h:ia', strtotime($post->updated_at)) }} </p>
 			</dl>
 			<hr>
 			<div class="row">
@@ -30,6 +34,9 @@
 					{!! Form::open(['route'=> ['posts.destroy', $post->id], 'method'=> 'delete'])!!}
 					{!! Form::submit('Delete', ['class'=> 'btn btn-danger btn-block']) !!}
 					{!! Form::close() !!}
+				</div>
+				<div class="col-md-10 col-md-offset-1">
+					{{Html::linkRoute('posts.index', 'All Posts', [], ['class'=>'btn btn-default btn-block'])}}
 				</div>
 			</div>
 		</div>
