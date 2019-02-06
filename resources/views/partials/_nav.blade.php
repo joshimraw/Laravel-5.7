@@ -15,19 +15,27 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="{{ Request::is('/') ? "active" : "" }}"><a href="/">Home</a></li>
-        <li class="{{ Request::is('/blog') ? "active" : "" }}"><a href="/blog">Blog</a></li>
-        <li class="{{ Request::is('about') ? "active" : "" }}"><a href="about">About</a></li>
-        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="contact">Contact</a></li>
+        <li class="{{ Request::is('/blog') ? "active" : "" }}"><a href="{{url('blog')}}">Blog</a></li>
+        <li class="{{ Request::is('about') ? "active" : "" }}"><a href="{{url('about')}}">About</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{url('contact')}}">Contact</a></li>
     	</ul>
   		
   		<ul class="nav navbar-nav navbar-right">
+        <!-- Auth::check() OR Auth::guest() -->
+        @if(Auth::guest())
+            <li class="{{ Request::is('/register') ? "active" : ""}}"><a href="/register">Register</a></li>
+            <li class="{{ Request::is('/login') ? "active" : ""}}"><a href="/login">Login</a></li>
+        @else
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/posts">Posts</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="{{route('categories.index')}}">Categories</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </li>
+        @endif
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

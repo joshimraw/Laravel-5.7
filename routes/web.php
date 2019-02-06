@@ -15,8 +15,15 @@
 
 Route::group(['middleware' => ['web']], function(){
 
+	// category 
+	Route::resource('categories', 'CategoryController', ['except'=> ['create']]);
+
+
+	// blog 
 	Route::get('blog', ['as'=> 'blog.index', 'uses'=>'BlogController@getIndex']);
 	Route::get('blog/{slug}', ['as'=>'blog.single', 'uses'=>'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
+
+	// pages and posts
 	Route::get('about', 'PagesController@getAbout');
 	Route::get('contact', 'PagesController@getContact' );
 	Route::get('/', 'PagesController@getIndex');
@@ -24,3 +31,12 @@ Route::group(['middleware' => ['web']], function(){
 
 }
 );
+
+// Auth controller - login and registration
+
+Auth::routes();
+Route::get('dashboard', 'DashboardController@getIndex');
+Route::get('logout', function(){
+   Auth::logout();
+   return Redirect::to('login');
+});

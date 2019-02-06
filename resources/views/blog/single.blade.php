@@ -10,6 +10,7 @@
 
 		<h1>{{ $post->title }}</h1>
 		<p> {{ $post->body }} </p>
+		<p><strong>Published in: </strong> {{ $post->category->name }}</p>
 		
 	</div>
 </div>

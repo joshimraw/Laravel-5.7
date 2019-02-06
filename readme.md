@@ -67,3 +67,39 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+Note:-
+
+- Model Always be the Singular form with firts letter capital - [Post]
+- Controller always be the singular camel case - [PostController]
+
+php artisan make:model Category
+php artisan make:controller CategoryController --resource
+php artisan make:migration create-categories_table --create=categories
+php artisan make:migration add_category_id_to_posts --table=posts
+
+in posts table
+$table->integer('category_id')->nullable()->after('slug')->unsigned();
+
+# relation between tables 
+in category model
+
+protected $table = 'categories',
+public function posts(){
+	return $this->hasMany('App\Post');
+}
+
+in post model
+
+public function category(){
+	return $this->belongsTo('App\Category');
+}
+
+# make roeute execpt some route
+Route::resource('category', 'CategoryController', ['except'=> ['create']])
+OR
+Route::resource('category', 'CategoryController', ['only'=> ['create']])
+
