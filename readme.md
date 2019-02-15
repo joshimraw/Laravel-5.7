@@ -81,25 +81,5 @@ php artisan make:controller CategoryController --resource
 php artisan make:migration create-categories_table --create=categories
 php artisan make:migration add_category_id_to_posts --table=posts
 
-in posts table
-$table->integer('category_id')->nullable()->after('slug')->unsigned();
-
-# relation between tables 
-in category model
-
-protected $table = 'categories',
-public function posts(){
-	return $this->hasMany('App\Post');
-}
-
-in post model
-
-public function category(){
-	return $this->belongsTo('App\Category');
-}
-
-# make roeute execpt some route
-Route::resource('category', 'CategoryController', ['except'=> ['create']])
-OR
-Route::resource('category', 'CategoryController', ['only'=> ['create']])
-
+## tinyMCE 
+## htmlpurifier

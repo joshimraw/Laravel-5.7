@@ -21,6 +21,12 @@
 		    	@endforeach
 		    </select>
 
+		    {!! Form::label('tags', 'Tags') !!}
+		    <select name="tags[]" class="form-control select2-multi" multiple="multiple">
+		    	@foreach($tags as $tag)
+					<option value="{{ $tag->id }}">{{ $tag->name }}</option>
+		    	@endforeach
+		    </select>
 
 		    {!! Form::label('body', 'Post Body') !!}
 		    {!! Form::textarea('body', null, array('class' => 'form-control', 'required' => ''))!!}
@@ -34,5 +40,6 @@
 @section('scripts')
 
 <script src="{{url('js/app.js')}}"></script>
+
 
 @endsection

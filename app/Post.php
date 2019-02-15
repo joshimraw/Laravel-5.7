@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use App\Tag;
+use App\Comment;
 
 class Post extends Model
 {
@@ -14,5 +15,9 @@ class Post extends Model
 
     public function tags(){
     	return $this->belongsToMany('App\Tag');
+    }
+
+    public function comments(){
+    	return $this->hasMany('App\Comment');
     }
 }

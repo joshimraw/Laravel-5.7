@@ -16,6 +16,9 @@
 
 		{!! Form::label('category_id', 'Category') !!}
 		{!! Form::select('category_id', $categories, null, ['class'=>'form-control']) !!}
+
+		{!! Form::label('tags', 'Tags') !!}
+		{!! Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi', 'multiple'=>'multiple']) !!}
 		
 		{!! Form::label('body', 'Post Body') !!}
 		{!! Form::textarea('body', null, array('class'=> 'form-control')) !!}

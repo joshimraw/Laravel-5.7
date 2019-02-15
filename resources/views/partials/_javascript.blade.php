@@ -2,4 +2,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="{{url('js/parsley.min.js')}}"></script>
+    <script src="{{url('js/select2.min.js')}}"></script>
     <script src="{{url('js/custom.js')}}"></script>

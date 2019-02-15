@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Post;
+use Mail;
+use Session;
 
 class PagesController extends Controller {
 	public function getIndex(){
@@ -15,10 +18,25 @@ class PagesController extends Controller {
 	}
 
 	public function getContact(){
-		$info = array(
-			'name' => 'joshim',
-			'cell' => '245445'
+		return view('pages.contact');
+	}
+	public function postContact(Request $request){
+		$this->validate($request, [
+			'email'		=> 'required|email|min:9',
+			'subject'	=> 'required|max:60',
+			'message'	=> 'required|max:255|min:10'
+		]);
+		$data = array(
+			'email' 	=> $request->email,
+			'subject'	=> $request->subject,
+			'bodyMessage'=> $request->message,
 		);
-		return view('pages.contact')->withInfo($info);
+		Mail::send('email.contact', $data, function($message) use($data){
+			$message->from($data['email']);
+			$message->to('joshim7m@gmail.com');
+			$message->subject($data['subject']);
+		});
+		Session::flash('success', 'Mail has sent');
+		return redirect()->route('blog.index');
 	}
 }
